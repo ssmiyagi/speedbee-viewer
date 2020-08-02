@@ -2,7 +2,8 @@
   <v-container>
     <data-list />
     <db-info/>
-  </v-container>
+     <p>{{message}}</p>
+    </v-container>
 </template>
 
 <script lang="ts">
@@ -15,5 +16,19 @@ export default Vue.extend({
     DataList,
     DbInfo,
   },
+  computed: {
+    message () {
+      let message = ''
+      message = 'iueo'
+      const req = new XMLHttpRequest
+      req.open('GET', '/foo', false)
+      req.onload = function () {
+        console.log("res",req.responseText);
+        message = JSON.parse(req.responseText).msg
+      }
+      req.send(null)
+      return message
+    }
+  }
 });
 </script>

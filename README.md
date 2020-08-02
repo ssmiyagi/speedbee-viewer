@@ -5,9 +5,15 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### サーバーモードで起動
 ```
 npm run serve
+npm run express
+```
+
+### アプリで起動
+```
+npm run electron:serve
 ```
 
 ### Compiles and minifies for production
@@ -79,3 +85,6 @@ npm install --save-dev @types/node@12.6.9
 npm install @types/electron-devtools-installer --save-dev
 ```
 [参考](https://qiita.com/kagayat829/items/cf26b7a2702d69b463dc)
+
+## vue cli expressサーバー使用
+[参考](https://qiita.com/corestate55/items/81ba50cf33c78b7119fd)
