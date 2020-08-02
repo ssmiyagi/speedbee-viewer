@@ -17,6 +17,13 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "DataList",
+  props:{
+    'dbData':{
+      type: Array,
+      default: ()=>{[]},
+      required: true
+    }
+  },
   data: () => ({
     headers: [
       {
@@ -42,23 +49,22 @@ export default Vue.extend({
         value: "data"
       }
     ],
-    dbData: [
-      {
-        type: "Col1",
-        dataType: "int",
-        keyType: "timestamp",
-        key: "1",
-        data: 1
-      },
-      {
-        type: "Col2",
-        dataType: "int",
-        keyType: "timestamp",
-        key: "2",
-        data: 2
-      }
-    ],
-    lazy: `https://goo.gl/jbJWmK`
+    // dbData: [
+    //   {
+    //     type: "Col1",
+    //     dataType: "int",
+    //     keyType: "timestamp",
+    //     key: "1",
+    //     data: 1
+    //   },
+    //   {
+    //     type: "Col2",
+    //     dataType: "int",
+    //     keyType: "timestamp",
+    //     key: "2",
+    //     data: 2
+    //   }
+    // ],
   }),
 
   methods: {
