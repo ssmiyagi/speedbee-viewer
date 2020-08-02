@@ -9,7 +9,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in dbInfo" :key="item.key">
+          <tr v-for="item in info" :key="item.key">
             <td>{{ item.key }}</td>
             <td>{{ item.value }}</td>
           </tr>
@@ -24,19 +24,25 @@ import Vue from "vue";
 
 export default Vue.extend({
   name:"DbInfoTable",
-  data() {
-    return {
-      dbInfo: [
-        {
-          key:"dbパス",
-          value:"c/x/x/x",
-        },
-        {
-          key:"カラム数",
-          value:"4",
-        }
-      ]
+  props:{
+    'info':{
+      default:null,
+      required: true
     }
   },
+  // data() {
+  //   return {
+  //     dbInfo: [
+  //       {
+  //         key:"dbパス",
+  //         value:"c/x/x/x",
+  //       },
+  //       {
+  //         key:"カラム数",
+  //         value:"4",
+  //       }
+  //     ]
+  //   }
+  // },
 });
 </script>

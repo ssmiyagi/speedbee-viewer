@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <db-info-table/>    
-    <option-info-list/>
+    <db-info-table :info="dbInfo.info"/>    
+    <option-info-list :info="dbInfo.options"/>
   </v-container>
 </template>
 
@@ -16,5 +16,17 @@ export default Vue.extend({
     DbInfoTable,
     OptionInfoList
   },
+  props:{
+    'dbInfo':{
+    type     : Object,
+    'default': () => (
+      {
+        info:null,
+        options:null
+      }
+      ),
+     required: true
+    }
+  }
 });
 </script>

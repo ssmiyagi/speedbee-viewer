@@ -24,19 +24,26 @@ import Vue from "vue";
 
 export default Vue.extend({
   name:"OptionTable",
-  data() {
-    return {
-      info: [
-        {
-          key:"カラム名",
-          value:"xxxxx",
-        },
-        {
-          key:"データタイプ",
-          value:"INT8",
-        }
-      ]
+  props:{
+    'info':{
+      type:Array,
+      default:null,
+      required: true
     }
   },
+  // data() {
+  //   return {
+  //     info: [
+  //       {
+  //         key:"カラム名",
+  //         value:"xxxxx",
+  //       },
+  //       {
+  //         key:"データタイプ",
+  //         value:"INT8",
+  //       }
+  //     ]
+  //   }
+  // },
 });
 </script>

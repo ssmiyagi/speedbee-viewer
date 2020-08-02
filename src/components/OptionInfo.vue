@@ -2,9 +2,9 @@
 <template>
   <v-container>
     <h2>
-      {{colName}}  
+      {{name}}  
     </h2> 
-    <OptionTable/>
+    <option-table :info='info'/>
   </v-container>
 </template>
 
@@ -17,10 +17,22 @@ export default Vue.extend({
   components:{
     OptionTable
   },
-  data() {
-    return {
-      colName:"col1"
+  props:{
+    'name':{
+      type:String,
+      default:null,
+      required: true
+    },
+    'info':{
+      type:Array,
+      default:null,
+      required: true
     }
   },
+  // data() {
+  //   return {
+  //     colName:"col1"
+  //   }
+  // },
 });
 </script>

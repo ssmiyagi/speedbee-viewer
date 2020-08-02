@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import StartContent from '@/components/StartContent.vue'
 
@@ -25,6 +25,6 @@ export default {
     return{
         drawer: null
     }
-  }
+  },
 }
 </script>

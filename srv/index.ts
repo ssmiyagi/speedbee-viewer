@@ -7,6 +7,48 @@ export default (app, http) => {
     console.log("req come")
     res.json({msg: 'foo'});
   });
+  app.get('/db', (req, res) => {
+    res.json({
+      info:[
+        {
+          key:"db名",
+          value:"dbの名前だよ"
+        }
+      ],
+      options:[
+        {
+          name:"col1",
+          value:[
+            {
+              key:"カラム名",
+              value:"あいうえお"
+            }
+          ]
+        },
+        {
+          name:"col2",
+          value:[
+            {
+              key:"カラム名",
+              value:"かきくけこ"
+            }
+          ]
+        }
+      ]
+    });
+  });
+
+  app.get('/data', (req, res) => {
+    res.json([
+      {
+        type: "Col1",
+        dataType: "int",
+        keyType: "timestamp",
+        key: "1",
+        data: 1
+      },
+    ])
+  });
   //
   // app.post('/bar', (req, res) => {
   //   res.json(req.body);

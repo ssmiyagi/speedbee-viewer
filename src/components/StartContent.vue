@@ -1,34 +1,35 @@
 <template>
   <v-container>
     <data-list />
-    <db-info/>
-     <p>{{message}}</p>
+    <db-info-content :dbInfo="dbInfo"/>
     </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-
 import DataList from "@/components/DataList.vue";
-import DbInfo from "@/components/DbInfo.vue";
+import DbInfoContent from "@/components/DbInfoContent.vue";
+import { inject , ref, onMounted } from "@vue/composition-api";
+import { DataAccessorSybol,DataAccessor, DbInfo } from '@/front_lib/DataAccessor';
+
 export default Vue.extend({
+  setup(){
+    const db: DataAccessor | any = inject<DataAccessor>(DataAccessorSybol)
+    const dbInfo = ref<DbInfo>();
+    onMounted(async () => {
+      try {
+        dbInfo.value = await db.info();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+    return {
+      dbInfo,
+    };
+  },
   components: {
     DataList,
-    DbInfo,
+    DbInfoContent,
   },
-  computed: {
-    message () {
-      let message = ''
-      message = 'iueo'
-      const req = new XMLHttpRequest
-      req.open('GET', '/foo', false)
-      req.onload = function () {
-        console.log("res",req.responseText);
-        message = JSON.parse(req.responseText).msg
-      }
-      req.send(null)
-      return message
-    }
-  }
 });
 </script>

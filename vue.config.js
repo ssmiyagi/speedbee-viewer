@@ -8,5 +8,8 @@ module.exports = {
       shouldServeApp: true,
       serverDir: './srv'
     }
+  },
+  configureWebpack: {
+    devtool: 'source-map'
   }
 }
