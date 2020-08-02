@@ -1,8 +1,7 @@
 <template>
   <v-container>
     <!-- <data-list /> -->
-    <db-info-list/>    
-    <option-info-list/>
+    <db-info/>
   </v-container>
 </template>
 
@@ -10,13 +9,10 @@
 import Vue from "vue";
 
 // import DataList from "@/components/DataList.vue";
-import DbInfoList from "@/components/DbInfoList.vue";
-import OptionInfoList from "@/components/OptionInfoList.vue";
+import DbInfo from "@/components/DbInfo.vue";
 export default Vue.extend({
   components: {
-    // DataList
-    DbInfoList,
-    OptionInfoList
+    DbInfo,
   },
 });
 </script>
