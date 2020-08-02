@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <db-info-list/>    
+    <db-info-table/>    
     <option-info-list/>
   </v-container>
 </template>
@@ -8,12 +8,12 @@
 <script lang="ts">
 import Vue from "vue";
 
-import DbInfoList from "@/components/DbInfoList.vue";
+import DbInfoTable from "@/components/DbInfoTable.vue";
 import OptionInfoList from "@/components/OptionInfoList.vue";
 export default Vue.extend({
   name:"DbInfo",
   components: {
-    DbInfoList,
+    DbInfoTable,
     OptionInfoList
   },
 });

@@ -23,7 +23,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name:"DbInfoList",
+  name:"DbInfoTable",
   data() {
     return {
       dbInfo: [
