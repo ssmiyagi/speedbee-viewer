@@ -54,6 +54,7 @@
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "spectron": "^11.0.0",
+    "speedbee_ts_js": "github:ssmiyagi/speedbee_ts_js",
     "typescript": "~3.9.3",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
     "vue-cli-plugin-express": "~1.0.2",
