@@ -1,4 +1,7 @@
 # speedbee-viewer
+```
+node v12.18.3
+```
 
 ## Project setup
 ```
