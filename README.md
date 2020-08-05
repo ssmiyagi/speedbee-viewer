@@ -2,7 +2,11 @@
 ```
 node v12.18.3
 ```
-
+todo
+```
+navigator
+char.js
+```
 ## Project setup
 ```
 npm install
