@@ -7,8 +7,8 @@ npm install
 
 ### サーバーモードで起動
 ```
-npm run serve
 npm run express
+npm run serve
 ```
 
 ### アプリで起動
