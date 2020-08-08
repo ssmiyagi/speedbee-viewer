@@ -6,13 +6,14 @@ todo
 ```
 navigator
 char.js
+DB data download csv
 ```
 ## Project setup
 ```
 npm install
 ```
 
-### サーバーモードで起動
+### サーバーモードで起動(注今壊れている)
 ```
 npm run express
 npm run serve
