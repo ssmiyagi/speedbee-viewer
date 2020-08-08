@@ -5,7 +5,7 @@
       <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Speedbee Viewer</v-toolbar-title>
     </v-app-bar>
-    <StartContent />
+    <start-content />
     <v-footer color="primary" dark app>
       Speedbee Viewer
     </v-footer>
