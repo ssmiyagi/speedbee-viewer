@@ -1,6 +1,19 @@
 
 <template>
   <v-container>
+    <v-row justify="end">
+      <v-col class="text-right">
+        <v-btn
+          color="primary"
+          right
+          :loading="isLoading"
+          :disabled="isLoading"
+          @click="downloadData()"
+        >
+          <v-icon>mdi-download</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
     <v-switch v-model="formatKey" :label="`formatKey`" />
     <v-data-table :headers="headers" :items="dbData" item-key="key">
       <template v-slot:body="{ items }">
@@ -35,6 +48,7 @@ export default Vue.extend({
   },
   data: () => ({
     formatKey: false,
+    isLoading: false,
     headers: [
       {
         text: "TYPE",
@@ -91,6 +105,36 @@ export default Vue.extend({
       } else {
         return keyValue;
       }
+    },
+    downloadData() {
+      this.isLoading = true;
+      let csv = "\ufeff";
+      this.headers.forEach((el: any) => {
+        csv += el.text + ",";
+      });
+      csv = csv.slice(0, -1);
+      csv += "\n";
+      (this as any).dbData.forEach((el: any) => {
+        const line =
+          el.type +
+          "," +
+          el.key +
+          "," +
+          el.keyType +
+          "," +
+          el.dataType +
+          "," +
+          el.data +
+          "," +
+          "\n";
+        csv += line;
+      });
+      const blob = new Blob([csv], { type: "text/csv" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "Result.csv";
+      link.click();
+      this.isLoading = false;
     },
   },
 });
