@@ -1,5 +1,12 @@
 # speedbee-viewer
-
+```
+node v12.18.3
+```
+todo
+```
+navigator
+char.js
+```
 ## Project setup
 ```
 npm install
@@ -7,8 +14,8 @@ npm install
 
 ### サーバーモードで起動
 ```
-npm run serve
 npm run express
+npm run serve
 ```
 
 ### アプリで起動
