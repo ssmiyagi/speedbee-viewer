@@ -13,7 +13,7 @@ DB data download csv
 npm install
 ```
 
-### サーバーモードで起動
+### サーバーモードで起動(注今壊れている)
 ```
 npm run express
 npm run serve
