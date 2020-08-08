@@ -109,22 +109,29 @@ export default (app, http) => {
     });
   });
 
-  app.get('/data', (req, res) => {
-    res.json([
-      {
-        type: "Col1",
-        dataType: "int",
-        keyType: "timestamp",
-        key: "1",
-        data: 1
-      },
-    ])
+  app.get('/data', async (req, res) => {
+    let info = db.info();
+    const colNames = [];
+    info.colInfo.forEach(element => {
+      colNames.push(element.cname)
+    });
+    let queryVal = await db.selectQuery(colNames,()=>{return true});
+    let responce = [];
+    queryVal.forEach(colValue => {
+      colValue.value.forEach(value =>{
+        responce.push(
+          {
+            type:colValue.name,
+            dataType:colValue.dataType,
+            keyType:"timestamp",
+            key:value.time,
+            data:value.value 
+          }
+        )
+      })
+    });
+    res.json(responce)
   });
-  //
-  // app.post('/bar', (req, res) => {
-  //   res.json(req.body);
-  // });
-  // 
   // optional support for socket.io
   // 
   // let io = socketIO(http);
