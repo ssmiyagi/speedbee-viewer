@@ -1,19 +1,26 @@
 
 <template>
   <v-container>
+    <v-switch v-model="formatKey" :label="`formatKey`"/>
     <v-data-table :headers="headers" :items="dbData" item-key="key">
-      <!-- //todo: keyTypeでKeyをformatする -->
-      <!-- <tr @click="props.expanded = !props.expanded">
-        <td>{{ props.item.title }}</td>
-        <td>{{ format(props.item.premiere) }}</td>
-        <td>{{ props.item.rating }}</td>
-      </tr> -->
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.name">
+            <td>{{item.type}}</td>
+            <td>{{format(item.key,item.keyType)}}</td>
+            <td>{{item.keyType}}</td>
+            <td>{{item.dataType}}</td>
+            <td>{{item.data}}</td>
+          </tr>
+        </tbody>
+      </template>
     </v-data-table>
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import NanoDate from "nano-date"
 
 export default Vue.extend({
   name: "DataList",
@@ -25,6 +32,7 @@ export default Vue.extend({
     }
   },
   data: () => ({
+    formatKey:false,
     headers: [
       {
         text: "TYPE",
@@ -52,28 +60,35 @@ export default Vue.extend({
     // dbData: [
     //   {
     //     type: "Col1",
-    //     dataType: "int",
-    //     keyType: "timestamp",
     //     key: "1",
+    //     keyType: "timestamp",
+    //     dataType: "int",
     //     data: 1
     //   },
-    //   {
-    //     type: "Col2",
-    //     dataType: "int",
-    //     keyType: "timestamp",
-    //     key: "2",
-    //     data: 2
-    //   }
     // ],
   }),
 
   methods: {
-    format(date: Date) {
-      date = new Date(date);
-      const day = `${date.getUTCDate()}`.padStart(2, "0");
-      const month = `${date.getUTCMonth() + 1}`.padStart(2, "0");
-      const year = date.getFullYear();
-      return `${month}/${day}/${year}`;
+    format(keyValue: number,key: string) {
+      if(!this.formatKey){
+        return keyValue;
+      }
+      if(key === 'timestamp'){
+        const date = new NanoDate(String(keyValue)); 
+        // const mon = date.getMonth();
+        // const day = date.getDay();
+        // const hour =  date.getHours();
+        // const min = date.getMinutes();
+        // const sec = date.getSeconds();
+        // const mils =  date.getMilliseconds();
+        // const mirs =  date.getMicroseconds();
+        // const nanos =  date.getNanoseconds();
+        // const dispDay = mon + '-' + day + ' ' + hour + ':'+ min + ':'+ sec + mils + mirs + nanos
+        return date.toString()
+        // return `${month}/${day}/${year}`;
+      }else{
+        return keyValue;
+      }
     }
   }
 });
