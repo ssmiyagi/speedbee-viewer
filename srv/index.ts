@@ -71,7 +71,6 @@ export default (app, http) => {
       const value: any = entry[1];
       
       if(key === "colInfo"){
-        console.log(value);
         value.forEach(element => {
           let option = {
             name:null,
