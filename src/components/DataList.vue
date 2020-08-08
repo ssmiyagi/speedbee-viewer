@@ -1,7 +1,7 @@
 
 <template>
   <v-container>
-    <v-switch v-model="formatKey" :label="`formatKey`"/>
+    <v-switch v-model="formatKey" :label="`formatKey`" />
     <v-data-table :headers="headers" :items="dbData" item-key="key">
       <template v-slot:body="{ items }">
         <tbody>
@@ -20,42 +20,44 @@
 
 <script lang="ts">
 import Vue from "vue";
-import NanoDate from "nano-date"
+import NanoDate from "nano-date";
 
 export default Vue.extend({
   name: "DataList",
-  props:{
-    'dbData':{
+  props: {
+    dbData: {
       type: Array,
-      default: ()=>{[]},
-      required: true
-    }
+      default: () => {
+        [];
+      },
+      required: true,
+    },
   },
   data: () => ({
-    formatKey:false,
+    formatKey: false,
     headers: [
       {
         text: "TYPE",
         value: "type",
         align: "left",
-        sortable: true
+        sortable: true,
       },
       {
         text: "Key",
-        value: "key"
+        value: "key",
       },
       {
         text: "Key_TYPE",
-        value: "keyType"
+        value: "keyType",
       },
       {
         text: "DATA_TYPE",
-        value: "dataType"
+        value: "dataType",
       },
       {
         text: "DATA",
-        value: "data"
-      }
+        value: "data",
+      },
     ],
     // dbData: [
     //   {
@@ -69,12 +71,12 @@ export default Vue.extend({
   }),
 
   methods: {
-    format(keyValue: number,key: string) {
-      if(!this.formatKey){
+    format(keyValue: number, key: string) {
+      if (!this.formatKey) {
         return keyValue;
       }
-      if(key === 'timestamp'){
-        const date = new NanoDate(String(keyValue)); 
+      if (key === "timestamp") {
+        const date = new NanoDate(String(keyValue));
         // const mon = date.getMonth();
         // const day = date.getDay();
         // const hour =  date.getHours();
@@ -84,12 +86,12 @@ export default Vue.extend({
         // const mirs =  date.getMicroseconds();
         // const nanos =  date.getNanoseconds();
         // const dispDay = mon + '-' + day + ' ' + hour + ':'+ min + ':'+ sec + mils + mirs + nanos
-        return date.toString()
+        return date.toString();
         // return `${month}/${day}/${year}`;
-      }else{
+      } else {
         return keyValue;
       }
-    }
-  }
+    },
+  },
 });
 </script>
