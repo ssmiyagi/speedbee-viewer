@@ -6,7 +6,7 @@ todo
 ```
 navigator
 char.js
-DB data download csv
+//DB data download csv
 DBファイルパスの指定画面
 DBファイルパスをコンフィグファイルから
 ```
