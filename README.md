@@ -15,13 +15,13 @@ DBファイルパスをコンフィグファイルから
 npm install
 ```
 
-### サーバーモードで起動(注今壊れている)
+### サーバーモードで起動
 ```
 npm run express
 npm run serve
 ```
 
-### アプリで起動
+### アプリで起動(注今壊れている)
 ```
 npm run electron:serve
 ```
