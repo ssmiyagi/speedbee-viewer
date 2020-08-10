@@ -1,6 +1,7 @@
 
 <template>
   <v-container>
+    <v-switch v-model="formatKey" :label="`formatKey`" />
     <v-row justify="end">
       <v-col class="text-right">
         <v-btn
@@ -14,7 +15,6 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-switch v-model="formatKey" :label="`formatKey`" />
     <v-data-table :headers="headers" :items="dbData" item-key="key">
       <template v-slot:body="{ items }">
         <tbody>
