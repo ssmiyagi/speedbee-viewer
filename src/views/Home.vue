@@ -1,30 +1,31 @@
 <template>
   <div class="home">
-    <v-navigation-drawer app v-model="drawer" clipped>Navigation Lists</v-navigation-drawer>
+    <side-bar :drawer="drawer"  @input="show = $event"/> 
     <v-app-bar color="primary" dark clipped-left>
       <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Speedbee Viewer</v-toolbar-title>
     </v-app-bar>
-    <start-content />
-    <v-footer color="primary" dark app>
-      Speedbee Viewer
-    </v-footer>
+    <start-content :show="show"/>
+    <v-footer color="primary" dark app>Speedbee Viewer</v-footer>
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
-import StartContent from '@/components/StartContent.vue'
+import StartContent from "@/components/StartContent.vue";
+import SideBar from "@/components/SideBar.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    StartContent
+    StartContent,
+    SideBar
   },
-  data(){
-    return{
-        drawer: null
-    }
+  data() {
+    return {
+      drawer: false,
+      show:"info"
+    };
   },
-}
+};
 </script>
