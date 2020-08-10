@@ -4,7 +4,7 @@ node v12.18.3
 ```
 todo
 ```
-navigator
+//navigator
 char.js
 //DB data download csv
 DBファイルパスの指定画面
