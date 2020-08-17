@@ -1,12 +1,14 @@
 
 <template>
   <v-container>
-    <v-switch v-model="formatKey" :label="`formatKey`" />
+    <v-row justify="start">
+    <v-switch v-model="formatKey" :label="`Format key`" />
     <v-row justify="end">
       <v-col class="text-right">
         <v-btn
           color="primary"
           right
+          small
           :loading="isLoading"
           :disabled="isLoading"
           @click="downloadData()"
@@ -14,6 +16,7 @@
           <v-icon>mdi-download</v-icon>
         </v-btn>
       </v-col>
+    </v-row>
     </v-row>
     <v-data-table :headers="headers" :items="dbData" item-key="key">
       <template v-slot:body="{ items }">
@@ -118,7 +121,7 @@ export default Vue.extend({
         const line =
           el.type +
           "," +
-          el.key +
+          this.format(el.key,el.keyType) +
           "," +
           el.keyType +
           "," +

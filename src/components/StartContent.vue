@@ -2,6 +2,7 @@
   <v-container>
     <data-list v-if="show=='list'" :dbData="dbData" />
     <db-info-content v-if="show=='info'" :dbInfo="dbInfo" />
+    <the-chart v-if="show=='chart'" :dbData="dbData" />
   </v-container>
 </template>
 
@@ -9,6 +10,7 @@
 import Vue from "vue";
 import DataList from "@/components/DataList.vue";
 import DbInfoContent from "@/components/DbInfoContent.vue";
+import TheChart from "@/components/TheChart.vue";
 import { inject, ref, onMounted } from "@vue/composition-api";
 import {
   DataAccessorSybol,
@@ -47,6 +49,7 @@ export default Vue.extend({
   components: {
     DataList,
     DbInfoContent,
+    TheChart
   },
 });
 </script>

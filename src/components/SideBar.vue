@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" permanent expand-on-hover clipped app>
+    <v-navigation-drawer permanent expand-on-hover clipped app>
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" link @click="sendClickValue(item.value)">
           <v-list-item-icon>
@@ -20,13 +20,6 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "SideBar",
-  props: {
-    drawer: {
-      type: Boolean,
-      default: false,
-      required: true,
-    },
-  },
   data() {
     return {
       items: [

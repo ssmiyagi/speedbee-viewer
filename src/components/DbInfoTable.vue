@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <v-simple-table>
+    <h2 @click="show = !show">
+      DB infomation
+    </h2> 
+    <v-simple-table v-if="show==true">
       <template v-slot:default>
         <thead>
           <tr>
@@ -30,6 +33,9 @@ export default Vue.extend({
       required: true
     }
   },
+  data: () => ({
+    show: true,
+  })
   // data() {
   //   return {
   //     dbInfo: [

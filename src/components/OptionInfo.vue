@@ -1,10 +1,10 @@
 
 <template>
   <v-container>
-    <h2>
+    <h2 @click="show = !show">
       {{name}}  
     </h2> 
-    <option-table :info='info'/>
+    <option-table v-if="show==true" :info='info'/>
   </v-container>
 </template>
 
@@ -29,10 +29,8 @@ export default Vue.extend({
       required: true
     }
   },
-  // data() {
-  //   return {
-  //     colName:"col1"
-  //   }
-  // },
+  data: () => ({
+    show: false,
+  })
 });
 </script>

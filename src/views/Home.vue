@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <side-bar :drawer="drawer"  @input="show = $event"/> 
+    <side-bar  @input="show = $event"/> 
     <v-app-bar color="primary" dark clipped-left>
-      <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+      <!-- <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon> -->
       <v-toolbar-title>Speedbee Viewer</v-toolbar-title>
     </v-app-bar>
     <start-content :show="show"/>
