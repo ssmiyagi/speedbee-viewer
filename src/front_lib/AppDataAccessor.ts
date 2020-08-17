@@ -1,8 +1,8 @@
-const Speedbee_ts = require('speedbee_ts_js');
+const SpeedbeeTs = require('speedbee_ts_js');
 import {DataAccessor, DbInfo, DbData} from './DataAccessor'
 
 const target = "/mnt/c/dev/github/speedbee-viewer/test.sdts";
-const db = new Speedbee_ts(target);
+const db = new SpeedbeeTs(target);
 const dbInfoKeyList = {
   "dbpar": "DBパラメーター",
   "dbPath": "DB作成場所",
@@ -57,41 +57,38 @@ const colInfoKey = {
 
 export class AppDataAccessor implements DataAccessor{
   async info(){
-    let dbInfo = db.info();
-    let options: any = [];
-    let info: any = [];
+    const dbInfo = db.info();
+    const info: any = [];
+    const options: any = [];
 
     Object.entries(dbInfo).forEach(entry => {
       const key: string | null = entry[0];
       const value: any = entry[1];
       
       if(key === "colInfo"){
-        console.log(value);
         value.forEach((element: any) => {
-          let name: string = '';
-          let value: any = [];
-          Object.entries(element).forEach(entry => {
-            const key: string  = entry[0];
+          const option: {name: string; value: Array<any>} = {
+            name:'',
+            value:[],
+          }
+          Object.entries(element).forEach((entry: any) => {
+            const key: any = entry[0];
             const value: any = entry[1];
             if(key == "cname"){
-              name = value;
+              option.name = value;
             }else{
               const infoKey = (colInfoKey as any)[(key.toString())];
               if(infoKey){
-                value.push({
+                option.value.push({
                   key:infoKey,
                   value
                 })
               }
             }
           });
-          options.push({
-            name,
-            value
-          })
+          options.push(option)
         });
       }else{
-
         const infoKey = (dbInfoKeyList as any)[(key.toString())];
         if(infoKey){
           info.push({
@@ -100,16 +97,16 @@ export class AppDataAccessor implements DataAccessor{
           })
         }
       }
-    });
+    })
 
-    let result: DbInfo = {
+    const result: DbInfo = {
       info,
       options
     }
     return result;
   }
   async getData(){
-    let result: DbData = {
+    const result: DbData = {
         type: "Col1",
         dataType: "int",
         keyType: "timestamp",

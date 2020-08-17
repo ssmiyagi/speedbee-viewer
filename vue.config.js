@@ -7,6 +7,10 @@ module.exports = {
     express: {
       shouldServeApp: true,
       serverDir: './srv'
+    },
+    electronBuilder: {
+      nodeIntegration: true,
+      externals: ['speedbee_ts_js'],
     }
   },
   configureWebpack: {
