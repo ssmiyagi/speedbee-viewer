@@ -23,7 +23,7 @@ npm run serve
 
 ### アプリで起動
 ```
-
+npm run postinstall
 npm run electron:serve
 ```
 
