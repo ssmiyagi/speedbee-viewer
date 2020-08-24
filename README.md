@@ -21,8 +21,9 @@ npm run express
 npm run serve
 ```
 
-### アプリで起動(注今壊れている)
+### アプリで起動
 ```
+
 npm run electron:serve
 ```
 
