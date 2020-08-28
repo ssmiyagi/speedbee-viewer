@@ -1,0 +1,23 @@
+{
+  // "overrides": [
+  //   {
+  //     "files": [
+  //       "AppDataAccessor.ts"
+  //     ],
+  //     "rules": {
+  //       "typescript/no-var-requires": "off"
+  //     }
+  //   }
+  // ],
+  // "parserOptions": {
+  //   "ecmaVersion": 2018,
+  //   "sourceType": "module",
+  //   "project": "./tsconfig.json"
+  // },
+  // "env": {
+  //   "es7": true
+  // },
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0
+  }
+}
