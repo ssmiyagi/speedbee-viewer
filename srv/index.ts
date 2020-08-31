@@ -1,9 +1,14 @@
 import express from 'express';
 // import socketIO from "socket.io";
 const Speedbee_ts = require('speedbee_ts_js');
+import dotenv  from 'dotenv'
+dotenv.config()
+console.log(process.env.DB_PATH)
 
-const target = "/mnt/c/dev/github/speedbee-viewer/test.sdts";
-const db = new Speedbee_ts(target);
+// const target = "/mnt/c/dev/github/speedbee-viewer/test.sdts";
+const target = process.env.DB_PATH;
+const spdSoPath = process.env.SPD_SO_PATH;
+const db = new Speedbee_ts(target,{speedbeeModulePath:spdSoPath});
 const dbInfoKeyList = {
   "dbpar": "DBパラメーター",
   "dbPath": "DB作成場所",
