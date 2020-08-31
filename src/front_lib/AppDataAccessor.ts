@@ -1,8 +1,4 @@
-const SpeedbeeTs = require('speedbee_ts_js');
 import {DataAccessor, DbInfo, DbData} from './DataAccessor'
-
-const target = "/mnt/c/dev/github/speedbee-viewer/test.sdts";
-const db = new SpeedbeeTs(target);
 const dbInfoKeyList = {
   "dbpar": "DBパラメーター",
   "dbPath": "DB作成場所",
@@ -56,8 +52,16 @@ const colInfoKey = {
 }
 
 export class AppDataAccessor implements DataAccessor{
+  db: any;
+  constructor(){
+    const SpeedbeeTs = require('speedbee_ts_js');
+
+    const target = "/mnt/c/dev/github/speedbee-viewer/test.sdts";
+    this.db = new SpeedbeeTs(target);
+
+  }
   async info(){
-    const dbInfo = db.info();
+    const dbInfo = this.db.info();
     const info: any = [];
     const options: any = [];
 
