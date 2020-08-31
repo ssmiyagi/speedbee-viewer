@@ -13,7 +13,8 @@
     "express": "vue-cli-service express:watch",
     "express:run": "vue-cli-service express:run",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "makeTestDb":"tar -zxvf test.sdts.tar.gz"
   },
   "main": "background.js",
   "dependencies": {
